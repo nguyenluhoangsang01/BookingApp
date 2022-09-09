@@ -1,0 +1,76 @@
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+		"username": "admin",
+		"password": "admin"
+}
+
+###
+POST http://localhost:5000/api/hotels
+Content-Type: application/json
+
+{
+		"name": "Hotel 10",
+		"address": "Address",
+		"description": "Description",
+		"image": "Image",
+		"rating": 10,
+		"type": "hotel",
+		"city": "HCM",
+		"distance": 100,
+		"title": "Title",
+		"cheapestPrice": 300,
+		"featured": true
+}
+
+###
+GET http://localhost:5000/api/hotels
+
+###
+GET http://localhost:5000/api/rooms
+
+###
+GET http://localhost:5000/api/hotels/find/5f9f1b0b0b5c1c2c1c8b8b8b
+
+###
+PUT http://localhost:5000/api/hotels/631574e12a6f99049242b0da
+Content-Type: application/json
+
+{
+	"city": "Cu Chi"
+}
+
+###
+POST http://localhost:5000/api/rooms/631571382a6f99049242b068
+Content-Type: application/json
+
+{
+	"title": "Room 3",
+	"price": 100,
+	"maxPeople": "2",
+	"description": "Description",
+	"roomNumbers": [
+		{
+			"number": "200",
+			"unavailableDates": [
+				"2020-10-10",
+				"2020-10-11"
+			]
+		},
+		{
+			"number": "201"
+		}
+	]
+}
+
+###
+GET http://localhost:5000/api/hotels/rooms/631571412a6f99049242b06b
+
+###
+GET http://localhost:5000/api/hotels
+631193785aba98d022d9f137
+631a1465317b9c1ad23382e9
+631a14f1317b9c1ad2338300
+631a150f317b9c1ad233830b
