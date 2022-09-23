@@ -1,6 +1,6 @@
 import { Home, Hotel, Hotels, Login, Register, Reset } from "../../pages";
 
-const sidebarRoutes = [
+const routes = [
   {
     display: "Home",
     path: "/",
@@ -33,4 +33,4 @@ const sidebarRoutes = [
   },
 ];
 
-export default sidebarRoutes;
+export default routes;

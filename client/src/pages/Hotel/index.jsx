@@ -71,6 +71,7 @@ const Hotel = () => {
       if (e.keyCode === 27) {
         setSlideNumber(null);
         setIsOpen(false);
+        setOpenModal(false);
       }
     };
 
@@ -118,7 +119,9 @@ const Hotel = () => {
 
         <Container>
           <Title>{hotel.title}</Title>
-          <Button primary>Reserve</Button>
+          <Button primary onClick={handleClick}>
+            Reserve
+          </Button>
           <Address>
             <MdLocationOn />
             {hotel.address}
@@ -172,10 +175,16 @@ const Hotel = () => {
         </Container>
       </Wrapper>
 
-      {openModal && <Reserve setOpenModal={setOpenModal} />}
+      {openModal && <Reserve id={hotel._id} setOpenModal={setOpenModal} />}
     </Helmet>
   ) : (
-    <p>No data</p>
+    <Helmet title="Hotel not found">
+      <Wrapper>
+        <Container>
+          <p>We're sorry, but the hotel you're looking for is not found.</p>
+        </Container>
+      </Wrapper>
+    </Helmet>
   );
 };
 

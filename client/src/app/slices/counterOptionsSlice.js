@@ -5,6 +5,13 @@ const initialState = {
   children: 0,
   room: 1,
   days: 1,
+  dates: [
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ],
 };
 
 export const counterOptionsSlice = createSlice({
@@ -38,7 +45,10 @@ export const counterOptionsSlice = createSlice({
     },
 
     countDays: (state, { payload }) => {
-      state.days = payload === 0 ? 1 : payload;
+      state.days = payload + 1;
+    },
+    getDates: (state, { payload }) => {
+      state.dates = payload;
     },
   },
 });
@@ -52,5 +62,6 @@ export const {
   incrementRoom,
   decrementRoom,
   countDays,
+  getDates,
 } = counterOptionsSlice.actions;
 export default counterOptionsSlice.reducer;

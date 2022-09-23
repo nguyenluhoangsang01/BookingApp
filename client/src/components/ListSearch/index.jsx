@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import {
   countDays,
+  getDates,
   selectCounterOptions,
 } from "../../app/slices/counterOptionsSlice";
 import { getHotelsByCityReducerAsync } from "../../app/slices/hotelsSlice";
@@ -19,15 +20,14 @@ const ListSearch = () => {
   const { state } = useLocation();
   // State
   const [toggleDate, setToggleDate] = useState(false);
-  const [date, setDate] = useState(state.date);
   const [toggleOptions, setToggleOptions] = useState(false);
   // Search state
   const [destination, setDestination] = useState(state.destination);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(999999999999999);
   // Redux
-  const { adult, children, room } = useSelector(selectCounterOptions);
   const dispatch = useDispatch();
+  const { adult, children, room, dates } = useSelector(selectCounterOptions);
 
   // Handle action
   const handleSubmit = useCallback(() => {
@@ -42,11 +42,11 @@ const ListSearch = () => {
   useEffect(() => {
     dispatch(
       countDays(
-        Number(date[0].endDate.toString().substring(8, 10)) -
-          Number(date[0].startDate.toString().substring(8, 10))
+        Number(dates[0].endDate.toString().substring(8, 10)) -
+          Number(dates[0].startDate.toString().substring(8, 10))
       )
     );
-  }, [date, dispatch]);
+  }, [dates, dispatch]);
 
   return (
     <Wrapper>
@@ -63,17 +63,17 @@ const ListSearch = () => {
 
       <Item
         label="Check-in date"
-        date={`${format(date[0].startDate, "E, dd MMM yyyy")} - ${format(
-          date[0].endDate,
+        date={`${format(dates[0].startDate, "E, dd MMM yyyy")} - ${format(
+          dates[0].endDate,
           "E, dd MMM yyyy"
         )}`}
         onClick={() => setToggleDate((prevState) => !prevState)}
       />
       {toggleDate && (
         <DateRange
-          onChange={(item) => setDate([item.selection])}
+          onChange={(item) => dispatch(getDates([item.selection]))}
           moveRangeOnFirstSelection={false}
-          ranges={date}
+          ranges={dates}
           minDate={new Date()}
         />
       )}

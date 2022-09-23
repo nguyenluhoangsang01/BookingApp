@@ -3,8 +3,19 @@ POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-		"username": "admin",
-		"password": "admin"
+		"username": "admin1",
+		"password": "admin1"
+}
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+		"username": "admin1",
+		"email": "admin1@gmail.com",
+		"password": "admin1",
+		"repeatPassword": "admin1"
 }
 
 ###
@@ -12,15 +23,14 @@ POST http://localhost:5000/api/hotels
 Content-Type: application/json
 
 {
-		"name": "Hotel 10",
-		"address": "Address",
-		"description": "Description",
-		"image": "Image",
-		"rating": 10,
+		"name": "Hotel 1",
 		"type": "hotel",
-		"city": "HCM",
+		"city": "hcm",
+		"address": "Address 1",
 		"distance": 100,
-		"title": "Title",
+		"title": "Title 1",
+		"description": "Description 1",
+		"rating": 10,
 		"cheapestPrice": 300,
 		"featured": true
 }
@@ -32,45 +42,43 @@ GET http://localhost:5000/api/hotels
 GET http://localhost:5000/api/rooms
 
 ###
-GET http://localhost:5000/api/hotels/find/5f9f1b0b0b5c1c2c1c8b8b8b
+DELETE http://localhost:5000/api/rooms/631a150f317b9c1ad233830b/631d925c3856ee7d6eec0e1a
 
 ###
-PUT http://localhost:5000/api/hotels/631574e12a6f99049242b0da
+POST http://localhost:5000/api/rooms/631d925c3856ee7d6eec0e1a
 Content-Type: application/json
 
 {
-	"city": "Cu Chi"
-}
-
-###
-POST http://localhost:5000/api/rooms/631571382a6f99049242b068
-Content-Type: application/json
-
-{
-	"title": "Room 3",
+	"title": "Room 1",
 	"price": 100,
 	"maxPeople": "2",
-	"description": "Description",
+	"description": "Description 1",
 	"roomNumbers": [
-		{
-			"number": "200",
-			"unavailableDates": [
-				"2020-10-10",
-				"2020-10-11"
-			]
-		},
-		{
-			"number": "201"
-		}
-	]
+			{
+				"number": "101",
+				"unavailableDates": []
+			},
+				{
+				"number": "102",
+				"unavailableDates": []
+			},
+			{
+				"number": "103",
+				"unavailableDates": []
+			}
+		]
 }
 
 ###
-GET http://localhost:5000/api/hotels/rooms/631571412a6f99049242b06b
+GET http://localhost:5000/api/hotels/rooms/631a14f1317b9c1ad2338300
 
 ###
-GET http://localhost:5000/api/hotels
-631193785aba98d022d9f137
-631a1465317b9c1ad23382e9
-631a14f1317b9c1ad2338300
-631a150f317b9c1ad233830b
+GET http://localhost:5000/api/hotels/find/631a14f1317b9c1ad2338300
+
+###
+PUT http://localhost:5000/api/rooms/availability/631a14f1317b9c1ad2338301
+Content-Type: application/json
+
+{
+	"dates": "3000-10-13"
+}

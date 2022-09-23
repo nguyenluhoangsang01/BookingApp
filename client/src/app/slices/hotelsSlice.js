@@ -3,6 +3,7 @@ import {
   countHotelByType,
   countHotelsByCity,
   getHotel,
+  getHotelRoom,
   getHotels,
   getHotelsByCity,
   getHotelsWithFilterTrue,
@@ -15,6 +16,7 @@ const initialState = {
     hotelTypes: [],
     hotelsByCity: [],
     hotelsWithFilterTrue: [],
+    rooms: [],
   },
   loading: true,
   error: false,
@@ -54,7 +56,12 @@ export const hotelsSlice = createSlice({
         state.loading = false;
       }
     },
-    getHotelRoomReducer: (state, { payload }) => {},
+    getHotelRoomReducer: (state, { payload }) => {
+      if (payload.success) {
+        state.data.rooms = payload.rooms;
+        state.loading = false;
+      }
+    },
     getHotelsReducer: (state, { payload }) => {
       if (payload.success) {
         state.data.hotels = payload.hotels;
@@ -101,7 +108,11 @@ export const getHotelsWithFilterTrueReducerAsync =
 export const getHotelsByCityReducerAsync =
   (destination, minPrice, maxPrice) => async (dispatch) => {
     try {
-      const { data } = await getHotelsByCity(destination, minPrice, maxPrice);
+      const { data } = await getHotelsByCity(
+        destination.toLowerCase(),
+        minPrice,
+        maxPrice
+      );
       dispatch(getHotelsByCityReducer(data));
     } catch (error) {
       console.log(error);
@@ -118,7 +129,12 @@ export const getHotelReducerAsync = (id) => async (dispatch) => {
 };
 
 export const getHotelRoomReducerAsync = (id) => async (dispatch) => {
-  console.log(id);
+  try {
+    const { data } = await getHotelRoom(id);
+    dispatch(getHotelRoomReducer(data));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getHotelsReducerAsync = () => async (dispatch) => {
