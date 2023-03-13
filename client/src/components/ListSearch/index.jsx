@@ -78,7 +78,7 @@ const ListSearch = () => {
         />
       )}
 
-      <Item label="Min price per night" currency="VND">
+      <Item label="Min price per night" currency="USD">
         <Input
           type="text"
           placeholder="Min price"
@@ -87,7 +87,7 @@ const ListSearch = () => {
         />
       </Item>
 
-      <Item label="Max price per night" currency="VND">
+      <Item label="Max price per night" currency="USD">
         <Input
           type="text"
           placeholder="Max price"

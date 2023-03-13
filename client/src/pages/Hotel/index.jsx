@@ -130,7 +130,7 @@ const Hotel = () => {
             Excellent location - {hotel.distance}m from center
           </Distance>
           <PriceHighlight>
-            Book a stay over {hotel.cheapestPrice} VND at this property and get
+            Book a stay over {hotel.cheapestPrice} USD at this property and get
             a free airport taxi
           </PriceHighlight>
           <Images>
@@ -157,7 +157,7 @@ const Hotel = () => {
                 excellent location score of {hotel.rating}!
               </p>
               <span>
-                {hotel.cheapestPrice * days * room} VND ({days}-night
+                {hotel.cheapestPrice * days * room} USD ({days}-night
                 {days > 1 && "s"})
               </span>
 

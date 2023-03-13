@@ -43,7 +43,7 @@ const Item = (item) => {
           <Score>{item.rating}</Score>
         </Rating>
         <Texts>
-          <Price>{item.cheapestPrice} VND</Price>
+          <Price>{item.cheapestPrice} USD</Price>
           <Tax>Includes taxes and fees</Tax>
           <Link
             to={`/hotels/${item._id}`}

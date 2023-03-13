@@ -27,3 +27,12 @@ export const Items = styled.div`
   display: flex;
   gap: 1.5rem;
 `;
+export const Info = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+	& > p {
+		text-transform: uppercase;
+	}
+`;

@@ -8,14 +8,18 @@ Content-Type: application/json
 }
 
 ###
+GET http://localhost:5000/api/auth
+
+###
 POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-		"username": "admin1",
-		"email": "admin1@gmail.com",
-		"password": "admin1",
-		"repeatPassword": "admin1"
+		"username": "ad",
+		"email": "ad@gmail.com",
+		"password": "ad",
+		"repeatPassword": "ad",
+		"isAdmin": true
 }
 
 ###

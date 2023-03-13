@@ -1,35 +1,54 @@
-import { Home, Hotel, Hotels, Login, Register, Reset } from "../../pages";
+import {
+  AdminHome,
+  AdminHotels,
+  AdminLogin,
+  Home,
+  Hotel,
+  Hotels,
+  Login,
+  Register,
+  Reset,
+} from "../../pages";
 
 const routes = [
   {
-    display: "Home",
     path: "/",
     content: <Home />,
   },
   {
-    display: "Hotels",
     path: "/hotels",
     content: <Hotels />,
   },
   {
-    display: "Hotel",
     path: "/hotels/:id",
     content: <Hotel />,
   },
   {
-    display: "Login",
     path: "/login",
     content: <Login />,
   },
   {
-    display: "Register",
     path: "/register",
     content: <Register />,
   },
   {
-    display: "Reset",
     path: "/reset",
     content: <Reset />,
+  },
+  {
+    name: "Home",
+    path: "/admin",
+    content: <AdminHome />,
+  },
+  {
+    name: "Login",
+    path: "/admin/login",
+    content: <AdminLogin />,
+  },
+  {
+    name: "Hotels",
+    path: "/admin/hotels",
+    content: <AdminHotels />,
   },
 ];
 

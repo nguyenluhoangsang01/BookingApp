@@ -8,7 +8,7 @@ const Item = ({ src, name, city, cheapestPrice, rating, reviewScore }) => {
       <div>
         <h4>{name}</h4>
         <h5>{city}</h5>
-        <p>Starting from {cheapestPrice} VND</p>
+        <p>Starting from {cheapestPrice} USD</p>
         <div>
           <p>{rating}</p>
           <div>

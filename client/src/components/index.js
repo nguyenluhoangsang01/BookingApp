@@ -13,4 +13,5 @@ export { default as Options } from "./Options";
 export { default as Property } from "./Property";
 export { default as Reserve } from "./Reserve";
 export { default as Routers } from "./routers";
+export { default as Sidebar } from "./Sidebar";
 export { default as Search } from "./Search";

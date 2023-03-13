@@ -1,12 +1,14 @@
 import React from "react";
 import Button from "../Button";
-import { Container, Items, Logo, Wrapper } from "./Navbar.styles";
+import { Container, Info, Items, Logo, Wrapper } from "./Navbar.styles";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectAuth } from "../../app/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutReducer, selectAuth } from "../../app/slices/authSlice";
 
 const Navbar = () => {
+  // Redux
   const { user } = useSelector(selectAuth);
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>
@@ -24,7 +26,15 @@ const Navbar = () => {
             </Button>
           </Items>
         ) : (
-          <p>{user.username}</p>
+          <Info>
+            <p>{user.username}</p>
+						<span>-</span>
+            <Button>
+              <Link to="/login" onClick={() => dispatch(logoutReducer())}>
+                Logout
+              </Link>
+            </Button>
+          </Info>
         )}
       </Container>
     </Wrapper>
